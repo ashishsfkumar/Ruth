@@ -1,0 +1,26 @@
+<apex:page standardController="Account" extensions="accCtrl">
+    <apex:form >
+        <apex:PageBlock >
+            
+            <apex:pageBlockTable value="{! conList}" var="con" >
+                <apex:column headerValue="FirstName">
+                    <apex:outputField value="{!con.FirstName}"/>
+                </apex:column>
+                <apex:column headerValue="LastName">
+                    <apex:outputField value="{!con.LastName}"/>
+                </apex:column>
+                <apex:column headerValue="email">
+                    <apex:outputField value="{! con.email}"/>
+                </apex:column>
+                <apex:inlineEditSupport showOnEdit="update, cancelButton" hideOnEdit="editButton" event="ondblclick" changedStyleClass="myBoldClass" resetFunction="resetInlineEdit">
+                </apex:inlineEditSupport>
+                
+                
+            </apex:pageBlockTable>
+            <apex:pageBlockButtons >
+                <apex:commandButton id="update" action="{!quickUpdat}" value="UpdateRecord"/>
+            </apex:pageBlockButtons>
+        </apex:PageBlock>
+        
+    </apex:form>
+</apex:page>
